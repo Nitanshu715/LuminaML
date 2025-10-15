@@ -1,4 +1,32 @@
-# ML Challenge 2025 Problem Statement
+# 🌌 LuminaML — Intelligent Product Price Prediction Engine  
+
+> **A precision-focused Machine Learning system developed for the _Amazon ML Challenge 2025_**, engineered to analyze and predict e-commerce product pricing using real-world catalog data.  
+> Designed with a focus on reliability, scalability, and model interpretability — LuminaML illuminates insights hidden within vast product datasets.
+
+---
+
+## ✨ Overview
+
+**LuminaML** is a **robust ML inference and prediction pipeline** built around Amazon’s dataset for the **Amazon ML Challenge 2025**.  
+The project enhances a previously provided baseline by introducing **modular architecture, error resilience, and reproducible inference** through optimized use of:
+
+- **LightGBM** for high-performance gradient boosting  
+- **TF–IDF vectorization** for text representation  
+- **SVD (optional)** for dimensionality reduction  
+- **Robust file handling** and **artifact-based prediction pipeline** for deployment readiness  
+
+---
+
+## 🧩 Key Features
+
+- ⚙️ **Artifact-Driven Workflow** — All transformations and models are pre-trained and loaded via `.pkl` artifacts for perfect reproducibility.
+- 🧠 **LightGBM-Based Ensemble** — Multi-model average boosting for accurate and stable price predictions.
+- 💡 **Text Intelligence** — Uses TF–IDF encoding on product catalog metadata for deep contextual feature extraction.
+- 🔁 **Plug & Play Predict Function** — A single `predict()` function can be invoked from `sample_code.py` or used independently.
+- 🧾 **Fail-Safe Execution** — Extensive exception handling ensures no empty outputs or broken inference stages.
+- 🪶 **Minimal Dependencies** — Clean, lightweight pipeline with structured `src/` and `dataset/` directories.
+
+---
 
 ## Smart Product Pricing Challenge
 
