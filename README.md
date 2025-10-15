@@ -47,6 +47,7 @@ The dataset consists of the following columns:
 
 - **Training Dataset:** 75k products with complete product details and prices
 - **Test Set:** 75k products for final evaluation
+- [Test Cases and Artifacts](https://drive.google.com/drive/folders/1ohb0MNvgbovcwIZCNzCaQI3ChWPDN0Gu?usp=sharing)
 
 ### Output Format:
 
