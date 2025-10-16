@@ -1,135 +1,130 @@
-# 🌌 LuminaML — Intelligent Product Price Prediction Engine  
+# 🌟 LuminaML – Intelligent Product Price Prediction System
 
-> **A precision-focused Machine Learning system developed for the _Amazon ML Challenge 2025_**, engineered to analyze and predict e-commerce product pricing using real-world catalog data.  
-> Designed with a focus on reliability, scalability, and model interpretability — LuminaML illuminates insights hidden within vast product datasets.
-
----
-
-## ✨ Overview
-
-**LuminaML** is a **robust ML inference and prediction pipeline** built around Amazon’s dataset for the **Amazon ML Challenge 2025**.  
-The project enhances a previously provided baseline by introducing **modular architecture, error resilience, and reproducible inference** through optimized use of:
-
-- **LightGBM** for high-performance gradient boosting  
-- **TF–IDF vectorization** for text representation  
-- **SVD (optional)** for dimensionality reduction  
-- **Robust file handling** and **artifact-based prediction pipeline** for deployment readiness  
+> **Amazon ML Challenge 2025 Submission**  
+> An end-to-end machine learning pipeline built to predict product prices using Amazon catalog data, integrating TF-IDF, SVD, and LightGBM models. Designed with robustness, modularity, and production readiness in mind.
 
 ---
 
-## 🧩 Key Features
+## 🚀 Overview
 
-- ⚙️ **Artifact-Driven Workflow** — All transformations and models are pre-trained and loaded via `.pkl` artifacts for perfect reproducibility.
-- 🧠 **LightGBM-Based Ensemble** — Multi-model average boosting for accurate and stable price predictions.
-- 💡 **Text Intelligence** — Uses TF–IDF encoding on product catalog metadata for deep contextual feature extraction.
-- 🔁 **Plug & Play Predict Function** — A single `predict()` function can be invoked from `sample_code.py` or used independently.
-- 🧾 **Fail-Safe Execution** — Extensive exception handling ensures no empty outputs or broken inference stages.
-- 🪶 **Minimal Dependencies** — Clean, lightweight pipeline with structured `src/` and `dataset/` directories.
+**LuminaML** is a refined and production-grade ML inference pipeline developed as part of the **Amazon ML Challenge 2025**.  
+It processes raw product catalog content, transforms it into numerical embeddings, and predicts price ranges with optimized LightGBM models.
+
+This project focuses on *stability, compatibility, and interpretability*, ensuring the prediction process runs flawlessly even across changing data structures or missing artifacts. Here is the  [Test Cases and Artifacts](https://drive.google.com/drive/folders/1ohb0MNvgbovcwIZCNzCaQI3ChWPDN0Gu?usp=sharing).
 
 ---
 
-## Smart Product Pricing Challenge
+## 🧠 Core Features
 
-In e-commerce, determining the optimal price point for products is crucial for marketplace success and customer satisfaction. Your challenge is to develop an ML solution that analyzes product details and predict the price of the product. The relationship between product attributes and pricing is complex - with factors like brand, specifications, product quantity directly influence pricing. Your task is to build a model that can analyze these product details holistically and suggest an optimal price.
+- 🧩 **Modular Architecture** — Seamlessly structured for dataset, artifact, and model management.  
+- 🔍 **TF-IDF + SVD Pipeline** — Extracts semantic meaning from catalog descriptions efficiently.  
+- ⚙️ **LightGBM Ensemble** — Combines multiple trained models for improved accuracy and stability.  
+- 💾 **Robust Artifact Handling** — Safely loads joblib artifacts with version fallback mechanisms.  
+- 🧱 **Error-Resilient Design** — Protects against missing files, shape mismatches, and broken models.  
+- 🧮 **Automatic Output Generation** — Generates a complete `test_out.csv` with zero missing predictions.
 
-### Data Description:
+---
 
-The dataset consists of the following columns:
+## 🧩 Tech Stack
 
-1. **sample_id:** A unique identifier for the input sample
-2. **catalog_content:** Text field containing title, product description and an Item Pack Quantity(IPQ) concatenated.
-3. **image_link:** Public URL where the product image is available for download. 
-   Example link - https://m.media-amazon.com/images/I/71XfHPR36-L.jpg
-   To download images use `download_images` function from `src/utils.py`. See sample code in `src/test.ipynb`.
-4. **price:** Price of the product (Target variable - only available in training data)
+| Layer | Tools / Frameworks |
+|--------|--------------------|
+| **Language** | Python 3.13 |
+| **ML Models** | LightGBM, scikit-learn |
+| **Feature Extraction** | TF-IDF, TruncatedSVD |
+| **Libraries** | Pandas, NumPy, Joblib |
+| **Versioning** | Git & GitHub |
+| **Runtime** | Command Line / CLI Execution |
 
-### Dataset Details:
+---
 
-- **Training Dataset:** 75k products with complete product details and prices
-- **Test Set:** 75k products for final evaluation
-- [Test Cases and Artifacts](https://drive.google.com/drive/folders/1ohb0MNvgbovcwIZCNzCaQI3ChWPDN0Gu?usp=sharing)
+## 🧬 Project Structure
 
-### Output Format:
-
-The output file should be a CSV with 2 columns:
-
-1. **sample_id:** The unique identifier of the data sample. Note the ID should match the test record sample_id.
-2. **price:** A float value representing the predicted price of the product.
-
-Note: Make sure to output a prediction for all sample IDs. If you have less/more number of output samples in the output file as compared to test.csv, your output won't be evaluated.
-
-### File Descriptions:
-
-*Source files*
-
-1. **src/utils.py:** Contains helper functions for downloading images from the image_link. You may need to retry a few times to download all images due to possible throttling issues.
-2. **sample_code.py:** Sample dummy code that can generate an output file in the given format. Usage of this file is optional.
-
-*Dataset files*
-
-1. **dataset/train.csv:** Training file with labels (`price`).
-2. **dataset/test.csv:** Test file without output labels (`price`). Generate predictions using your model/solution on this file's data and format the output file to match sample_test_out.csv
-3. **dataset/sample_test.csv:** Sample test input file.
-4. **dataset/sample_test_out.csv:** Sample outputs for sample_test.csv. The output for test.csv must be formatted in the exact same way. Note: The predictions in the file might not be correct
-
-### Constraints:
-
-1. You will be provided with a sample output file. Format your output to match the sample output file exactly. 
-
-2. Predicted prices must be positive float values.
-
-3. Final model should be a MIT/Apache 2.0 License model and up to 8 Billion parameters.
-
-### Evaluation Criteria:
-
-Submissions are evaluated using **Symmetric Mean Absolute Percentage Error (SMAPE)**: A statistical measure that expresses the relative difference between predicted and actual values as a percentage, while treating positive and negative errors equally.
-
-**Formula:**
 ```
-SMAPE = (1/n) * Σ |predicted_price - actual_price| / ((|actual_price| + |predicted_price|)/2)
+student_resource/
+│
+├── dataset/
+│   ├── train.csv
+│   ├── test.csv
+│   └── test_out.csv        ← auto-generated predictions
+│
+├── src/
+│   ├── artifacts/
+│   │   ├── tfidf.pkl
+│   │   ├── svd.pkl
+│   │   ├── lgbm_fold_0.txt
+│   │   └── lgbm_fold_1.txt
+│   ├── predict.py          ← main inference logic
+│
+├── sample_code.py          ← entry script (runs predict())
+└── README.md               ← project documentation
 ```
 
-**Example:** If actual price = $100 and predicted price = $120  
-SMAPE = |100-120| / ((|100| + |120|)/2) * 100% = 18.18%
+---
 
-**Note:** SMAPE is bounded between 0% and 200%. Lower values indicate better performance.
+## ⚡ How It Works
 
-### Leaderboard Information:
+1. **Load Dataset** → Reads test data from `dataset/test.csv`  
+2. **Load Artifacts** → Imports pre-trained TF-IDF, SVD (if available), and LightGBM models  
+3. **Transform Text Data** → Converts catalog descriptions into vectorized embeddings  
+4. **Generate Predictions** → LightGBM ensemble predicts final prices  
+5. **Save Output** → Results are saved in `dataset/test_out.csv` automatically  
 
-- **Public Leaderboard:** During the challenge, rankings will be based on 25K samples from the test set to provide real-time feedback on your model's performance.
-- **Final Rankings:** The final decision will be based on performance on the complete 75K test set along with provided documentation of the proposed approach by the teams.
+---
 
-### Submission Requirements:
+## 🧾 Example Output
 
-1. Upload a `test_out.csv` file in the Portal with the exact same formatting as `sample_test_out.csv`
+| sample_id | price |
+|------------|--------|
+| 100179     | 59.32  |
+| 245611     | 12.48  |
+| 146263     | 89.14  |
+| ...        | ...    |
 
-2. All participating teams must also provide a 1-page document describing:
-   - Methodology used
-   - Model architecture/algorithms selected
-   - Feature engineering techniques applied
-   - Any other relevant information about the approach
-   Note: A sample template for this documentation is provided in Documentation_template.md
+✅ **File saved at:** `dataset/test_out.csv`
 
-### **Academic Integrity and Fair Play:**
+---
 
-**⚠️ STRICTLY PROHIBITED: External Price Lookup**
+## 🛠️ How to Run
 
-Participants are **STRICTLY NOT ALLOWED** to obtain prices from the internet, external databases, or any sources outside the provided dataset. This includes but is not limited to:
-- Web scraping product prices from e-commerce websites
-- Using APIs to fetch current market prices
-- Manual price lookup from online sources
-- Using any external pricing databases or services
+```bash
+# Step 1: Navigate to project folder
+cd AmazonML/student_resource
 
-**Enforcement:**
-- All submitted approaches, methodologies, and code pipelines will be thoroughly reviewed and verified
-- Any evidence of external price lookup or data augmentation from internet sources will result in **immediate disqualification**
+# Step 2: Run the sample code
+python sample_code.py
 
-**Fair Play:** This challenge is designed to test your machine learning and data science skills using only the provided training data. External price lookup defeats the purpose of the challenge.
+# Step 3: Check results
+cat dataset/test_out.csv
+```
 
+💡 **Tip:** Make sure your `src/artifacts/` folder contains the trained `.pkl` and `.txt` model files before running.
 
-### Tips for Success:
+---
 
-- Consider both textual features (catalog_content) and visual features (product images)
-- Explore feature engineering techniques for text and image data
-- Consider ensemble methods combining different model types
-- Pay attention to outliers and data preprocessing
+## 🧠 Challenges Solved
+
+- 🩹 Fixed broken path references and inconsistent artifact loading logic.  
+- 🧾 Enhanced TF-IDF and SVD usage to ensure backward compatibility with existing training setups.  
+- 🔄 Unified dataset paths for consistency between submission and local runs.  
+- 🧰 Built a fail-safe prediction loop that works across varied data structures.
+
+---
+
+## 🌈 Vision
+
+**LuminaML** was built with a singular goal — to illuminate the dark corners of machine learning inference pipelines.  
+It showcases how structured engineering, debugging, and architecture design can convert a failing model system into a production-grade, scalable pipeline.
+
+---
+
+## 👨‍💻 Author
+
+**Nitanshu Tak**  
+B.Tech CSE (CCVT) @ UPES, Dehradun  
+- 📧 [nitanshutak070105@gmail.com](mailto:nitanshutak070105@gmail.com)  
+- 🌐 [LinkedIn](https://linkedin.com/in/nitanshu) | [GitHub](https://github.com/Nitanshu)  
+
+---
+
+> “Precision through clarity — that’s the spirit of Lumina.” 🌟
