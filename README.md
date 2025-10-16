@@ -123,7 +123,7 @@ It showcases how structured engineering, debugging, and architecture design can 
 **Nitanshu Tak**  
 B.Tech CSE (CCVT) @ UPES, Dehradun  
 - 📧 [nitanshutak070105@gmail.com](mailto:nitanshutak070105@gmail.com)  
-- 🌐 [LinkedIn](https://linkedin.com/in/nitanshu) | [GitHub](https://github.com/Nitanshu)  
+- 🌐 [LinkedIn](https://www.linkedin.com/in/nitanshu-tak-89a1ba289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [GitHub](https://github.com/Nitanshu715)  
 
 ---
 
